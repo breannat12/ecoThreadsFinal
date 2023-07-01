@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EcoThreads - Entry Details</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <h1 class="logo">EcoThreads</h1>
+  </div>
+
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">Swap</a></li>
+      <li><a href="#">Leaderboard</a></li>
+      <li><a href="tips.html">Sustainable Clothing Tips</a></li>
+    </ul>
+  </nav>
+
+
+  <div id="entry-details">
+    <img id="detail-image" src="" alt="">
+    <h2 id="detail-title"></h2>
+    <p id="detail-type"></p>
+    <p id="detail-quantity"></p>
+    <p id="detail-address"></p>
+    <div id="claim-button-container">
+      <button id="claim-button">Claim!</button>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var entryIndex = urlParams.get('entry');
+
+
+    var storedEntries = localStorage.getItem('entries');
+    var entries = storedEntries ? JSON.parse(storedEntries) : [];
+    var entry = entries[entryIndex];
+
+
+    if (entry) {
+      document.getElementById('detail-image').src = entry.image;
+      document.getElementById('detail-image').alt = entry.title;
+      document.getElementById('detail-title').innerText = entry.title;
+      document.getElementById('detail-type').innerText = 'Type: ' + entry.type;
+      document.getElementById('detail-quantity').innerText = 'Quantity: ' + entry.quantity;
+      document.getElementById('detail-address').innerText = 'Address: ' + entry.address;
+    } else {
+      // Handle invalid entry index or entry not found
+      document.getElementById('entry-details').innerHTML = '<h2>Entry not found</h2>';
+    }
+
+
+    var claimButton = document.getElementById('claim-button');
+    claimButton.addEventListener('click', function() {
+      markAsClaimed(entryIndex);
+    });
+
+
+    function markAsClaimed(index) {
+      entries[index].claimed = true;
+      saveEntriesToLocalStorage();
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

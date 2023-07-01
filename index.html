@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EcoThreads</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="header">
+        <img src="C:\Users\puppy\Documents\BREANNA\Hackathon\Hackbytes II 2023\Hackbytes Test\ecoThreadsLogo2.png" alt="ecoThreads Logo" id="logoImg">
+    </div>
+   
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Swap</a></li>
+            <li><a href="#">Leaderboard</a></li>
+            <li><a href="tips.html">Sustainable Clothing Tips</a></li>
+        </ul>
+    </nav>
+
+
+    <div id="filter-buttons">
+        <button class="filter-button" data-type="all">All</button>
+        <button class="filter-button" data-type="shirt">Shirts</button>
+        <button class="filter-button" data-type="pant">Pants</button>
+        <button class="filter-button" data-type="jacket">Jackets</button>
+        <button class="filter-button" data-type="denim">Denim</button>
+        <button class="filter-button" data-type="accessory">Accessories</button>
+    </div>
+
+
+    <div id="grid-container"></div>
+
+
+    <div id="form-container">
+        <h2>Donate Your clothes!</h2>
+        <form id="entry-form">
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" required>
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+            <label for="type">Type of Clothing:</label>
+            <input type="text" id="type" required></textarea>
+            <label for="quantity">Quantity:</label>
+            <input type="text" id="quantity" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
